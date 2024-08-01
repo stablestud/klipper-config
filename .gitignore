@@ -1,0 +1,10 @@
+printer-*.cfg
+.moonraker.conf.bkp
+moonraker.conf.backup
+.theme
+mainsail.cfg
+saved_variables.cfg
+crowsnest.conf.*
+.*.swp
+*.secrets
+timelapse.cfg
