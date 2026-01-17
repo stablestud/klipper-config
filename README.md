@@ -26,7 +26,7 @@ This section will contain required settings to be set in Prusa Slicer so it work
 ##### Start G-code
 ```
 SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count]
-GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature] MESH_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} MESH_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
+_GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature] MESH_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} MESH_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 ```
 
 ##### Start G-code options
@@ -35,6 +35,7 @@ GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_te
 ##### End G-code
 ```
 ; total layers count = [total_layer_count]
+_GCODE_END
 ```
 
 ##### Before layer change G-code
