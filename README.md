@@ -10,11 +10,11 @@ This section will contain required settings to be set in Prusa Slicer so it work
 
 ##### Size and coordinates
 * Size
-** x: 295
-** y: 295
+  * x: 295
+  * y: 295
 * Origin
-** x: 0
-** y: -10
+  * x: 0
+  * y: -10
 * Texture and Model: https://www.thingiverse.com/thing:5167737
 
 ##### Firmware
@@ -26,7 +26,7 @@ This section will contain required settings to be set in Prusa Slicer so it work
 ##### Start G-code
 ```
 SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count]
-_GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature]
+_GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature] MESH_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} MESH_MAX={first_layer_print_max[0]},{first_layer_print_max[1]} NOZZLE_DIAMETER={nozzle_diameter[0]}
 ```
 
 ##### Start G-code options
