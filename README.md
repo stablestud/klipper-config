@@ -1,14 +1,17 @@
 # Klipper Config
 Home of personal configuration files of my 3D printer
 
-## Prusa Slicer Settings
-This section will contain required settings to be set in Prusa Slicer so it works with the 3D printer
+## Printer
 
-### Printers
+### Machine limits
+* Velocity XY: `370`
+* Acceleration XY: `6000`
+* Velocity Z: `40`
+* Acceleration Z: `600`
 
-#### General
+These limits were determined using the `AUTO_SPEED` macros from [klipper_auto_speed](https://github.com/Anonoei/klipper_auto_speed)
 
-##### Size and coordinates
+### Printable bed size and coordinates
 * Size
   * x: 295
   * y: 295
@@ -17,52 +20,45 @@ This section will contain required settings to be set in Prusa Slicer so it work
   * y: -10
 * Texture and Model: https://www.thingiverse.com/thing:5167737
 
-##### Firmware
+## Slicer Configuration
+This section will contain required settings to be set in Prusa Slicer so it works with the 3D printer
+
+### Firmware
 * G-code flavor: `Klipper`
 * G-code thumbnails: `32x32/PNG, 400x300/PNG`
 
-#### Custom G-code
-
-##### Start G-code
+### Start G-code
+Make sure the slicer does not emit temperatures setting G-Codes itself
 ```
 SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count]
-_GCODE_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature] MESH_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} MESH_MAX={first_layer_print_max[0]},{first_layer_print_max[1]} NOZZLE_DIAMETER={nozzle_diameter[0]}
+PRINT_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_tool]} CHAMBER_TEMP=[chamber_temperature] MESH_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} MESH_MAX={first_layer_print_max[0]},{first_layer_print_max[1]} NOZZLE_DIAMETER={nozzle_diameter[0]}
 ```
 
-##### Start G-code options
-* Emit temperature commands automatically: `[ ]` (unselect)
-
-##### End G-code
+### End G-code
 ```
 ; total layers count = [total_layer_count]
-_GCODE_END
+PRINT_END
 ```
 
-##### Before layer change G-code
+### Before layer change G-code
 ```
 TIMELAPSE_TAKE_FRAME
 ```
 
-##### After layer change G-code
+### After layer change G-code
 ```
 SET_PRINT_STATS_INFO CURRENT_LAYER={layer_num + 1}
 ```
 
-#### Extruder 1
+### Output options
+* Label objects: `Firmware-specific`/`Enable`
+* Exclue objects: `Enable`
+* Output filename format:
+```
+[input_filename_base]_[print_time]_{temperature[0]}C_{nozzle_diameter[0]}mm_{filament_type[0]}_{digits(layer_height,1,2)}mm.gcode
+```
 
-##### Size
-* High flow nozzle: `[x]` (select)
+## Calibration
 
-##### Layer height limits
-* Min: `0`
-
-##### Retraction
-* Retraction length: `0.5`
-
-### Print Settings
-
-#### Output options
-
-##### Output file
-* Label object: `Firmware-specific`
-* Output filename format: `[input_filename_base]_[print_time]_{temperature[0]}C_{nozzle_diameter[0]}mm_{filament_type[0]}_{digits(layer_height,1,2)}mm.gcode`
+Good calibration guide can be found [here](https://ellis3dp.com/Print-Tuning-Guide/)    
+Axis rotation_distance calibration can be done with the `AXIS_CALIBRATE` macro

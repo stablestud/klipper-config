@@ -8,3 +8,4 @@ crowsnest.conf.*
 .*.swp
 *.secrets
 timelapse.cfg
+*obico*
