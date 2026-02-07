@@ -20,6 +20,21 @@ These limits were determined using the `AUTO_SPEED` macros from [klipper_auto_sp
   * y: -10
 * Texture and Model: https://www.thingiverse.com/thing:5167737
 
+### Installed Components
+
+* Titan Aero (TH3D Studio's Tough Ultimate Hotend Package)
+* EZABL Pro 18mm
+* 5015 Blower Part Cooling Fan (HoneyBadger, 9200RPM, 4-Wire, 24V, max 95C, 7.1CFM, 57.4mmH20)
+* 750W Heated Bed (310x310mm, 220V)
+* 70W V6 Hotend Heating Cartridge (max 500C, 24V)
+* 200W iHeater Chamber Heater (220V)
+* PT1000 Hotend Sensor (max 450Cm, 3-Wire)
+* TMC2209 Stepper Drivers
+* BTT Octopus Pro v1.1 H723
+* Raspberry Pi 3B+
+* 2x Relay (max 10A, 5VDC control, 250VAC/30VDC relay)
+* NF-A4X20 Heatbreak Fan (Noctua, 5000RPM, 4-Wire, 12V)
+
 ## Slicer Configuration
 This section will contain required settings to be set in Prusa Slicer so it works with the 3D printer
 
